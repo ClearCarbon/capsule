@@ -11,13 +11,7 @@ class PodcastsController < ApplicationController
   def create
     @podcast = Podcast.new(podcast_params)
 
-    uri = URI(@podcast.url)
-    rss = Net::HTTP.get(uri)
-    feed = RSS::Parser.parse(rss)
-    puts "Title: #{feed.channel.title}"
-    feed.items.each do |item|
-      puts "Item: #{item.title}"
-    end
+    PodcastLoader.new(@podcast).update
 
     respond_to do |format|
       format.html do

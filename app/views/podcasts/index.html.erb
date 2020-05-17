@@ -8,7 +8,10 @@
   <div class='col-sm'>
     <ul>
       <% @podcasts.each do |podcast| %>
-        <li><%= podcast.url %></li>
+        <li>
+          <%= podcast.image_url.present? ? image_tag(podcast.image_url, class: 'podcast-image') : '' %>
+          <%= podcast.title.to_s + ' ' + podcast.url %>
+        </li>
       <% end %>
     </ul>
   </div>
