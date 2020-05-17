@@ -1,1 +1,15 @@
-Here I am
+<div class='row'>
+  <div class='col-sm'>
+    <%= link_to 'Add Podcast', new_podcasts_path, class: 'btn btn-primary btn-lg float-right' %>
+  </div>
+</div>
+
+<div class='row mt-4'>
+  <div class='col-sm'>
+    <ul>
+      <% @podcasts.each do |podcast| %>
+        <li><%= podcast.url %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

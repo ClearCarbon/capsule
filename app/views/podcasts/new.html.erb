@@ -1,0 +1,8 @@
+<h1>New Podcast</h1>
+
+<div class='mt-4'>
+  <%= simple_form_for @podcast do |f| %>
+    <%= f.input :url, input_html: { class: 'form-control-lg' } %>
+    <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>
